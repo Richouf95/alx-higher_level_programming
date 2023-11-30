@@ -6,7 +6,7 @@ if __name__ == "__main__":
     i = 1
     result = 0
     if length > 0:
-        while i < len(arg):
+        while i <= length:
             result += int(arg[i])
             i += 1
-    print(result)
+    print("{}".format(result))
