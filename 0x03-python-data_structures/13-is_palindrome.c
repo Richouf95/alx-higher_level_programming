@@ -16,7 +16,7 @@ int check(listint_t *head, listint_t **current)
 
 	tail = check(head->next, current);
 
-	if (tail && (*current)->data == head->data)
+	if (tail && (*current)->n == head->n)
 	{
 		*current = (*current)->next;
 		return (1);
@@ -36,5 +36,5 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL || head == NULL)
 		return (1);
 
-	return (check(head, *head));
+	return (check(*head, head));
 }
