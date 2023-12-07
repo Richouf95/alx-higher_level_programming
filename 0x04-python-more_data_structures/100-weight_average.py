@@ -3,7 +3,7 @@
 def weight_average(my_list=[]):
     total = 0
     divider = 0
-    
+
     for x in my_list:
         mul = x[0] * x[1]
         total += mul
