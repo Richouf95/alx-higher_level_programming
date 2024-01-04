@@ -13,8 +13,8 @@ class Rectangle:
         """
             Initialize a new Rectangle
             Args:
-                w (int): Rectangle width
                 h (int): Rectangle height
+                w (int): Rectangle width
         """
         self.__height = h
         self.__width = w
