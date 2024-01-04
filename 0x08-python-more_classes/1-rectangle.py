@@ -14,19 +14,19 @@ class Rectangle:
             Initialize a new Rectangle
 
             Args:
-                w (int): Rectangle width
                 h (int): Rectangle height
+                w (int): Rectangle width
         """
-        self.__width = w
         self.__height = h
+        self.__width = w
 
-    def _getWidth(self):
+    def width(self):
         """
             Width Getter
         """
         return self.__width
 
-    def _setWidth(self, newWidth):
+    def width(self, newWidth):
         """
             Width Setter
         """
@@ -36,13 +36,13 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = newWidth
 
-    def _getHeight(self):
+    def height(self):
         """
             Height Getter
         """
         return self.__height
 
-    def _setHeight(self, newHeight):
+    def height(self, newHeight):
         """
             Height Setter
         """
@@ -52,5 +52,5 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = newHeight
 
-    width = property(_getWidth, _setWidth)
-    height = property(_getHeight, _setHeight)
+    width = property(width, width)
+    height = property(height, height)
