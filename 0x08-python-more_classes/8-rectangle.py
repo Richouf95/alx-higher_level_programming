@@ -71,9 +71,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return ((self.__width * 2) + (self.__height * 2))
-    
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
+
+    def bigger_or_equal(cls, rect_1, rect_2):
         """
             compare two rectangle end return the bigest
             Args:
@@ -121,3 +120,4 @@ class Rectangle:
 
     width = property(_getWidth, _setWidth)
     height = property(_getHeight, _setHeight)
+    bigger_or_equal = classmethod(bigger_or_equal)
