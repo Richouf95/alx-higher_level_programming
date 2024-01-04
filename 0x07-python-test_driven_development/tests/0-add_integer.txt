@@ -1,12 +1,15 @@
-===========================
-How to Use 0-add_integer.py
-===========================
+================================
+Test for 0-add_integer.py Module
+================================
 
-This module defines an integer addition function ``add_integer(a, b=98)``.
+This module ``add_integer(a, b=98)`` calculate the sum of two number
 
 ::
 
     >>> add_integer = __import__('0-add_integer').add_integer
+
+::
+
     >>> add_integer(2, 3)
     5
 
