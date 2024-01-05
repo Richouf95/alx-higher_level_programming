@@ -3,6 +3,7 @@
     add two number
 """
 
+
 def add_integer(a, b=98):
     """
         Function add
