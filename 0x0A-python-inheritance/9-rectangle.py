@@ -38,5 +38,5 @@ class Rectangle(BaseGeometry):
         representation += str(self.__width)
         representation += "/"
         representation += str(self.__height)
-        
+ 
         return representation
