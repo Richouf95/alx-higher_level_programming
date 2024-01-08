@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-    Object available attributes
+    This module track object attributes
 """
 
 
 def lookup(obj):
     """
-        Print available list of attributes
+        This function print object attributes list
     """
-    print(dir(obj))
+    return (dir(obj))
