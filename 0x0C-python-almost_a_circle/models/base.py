@@ -5,6 +5,8 @@
 
 
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -82,7 +84,79 @@ class Base:
         except IOError:
             return []
 
+    def save_to_file_csv(cls, list_objs):
+        """
+            Save file csv
+        """
+        file_name = "{}.csv".format(cls.__name__)
+        with open(file_name, "a") as fic:
+            if list_objs is None or list_objs == []:
+                fic.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    keys = ["id", "width", "height", "x", "y"]
+                else:
+                    keys = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(fic, fieldnames=keys)
+                for data in list_objs:
+                    writer.writerow(data.to_dictionary())
+
+    def load_from_file_csv(cls):
+        """
+            Load file csv
+        """
+        file_name = "{}.csv".format(cls.__name__)
+        try:
+            with open(file_name, "r", newline="") as fic:
+                if cls.__name__ == "Rectangle":
+                    keys = ["id", "width", "height", "x", "y"]
+                else:
+                    keys = ["id", "size", "x", "y"]
+                data = csv.DictReader(fic, fieldnames=keys)
+                data = [dict([key, int(value)] for key, value in item.items())
+                        for item in data]
+                return [cls.create(**obj) for obj in data]
+        except IOError:
+            return []
+
+    def draw(list_rectangles, list_squares):
+        tu = turtle.Turtle()
+        tu.screen.bgcolor("#C75FAF")
+        tu.pensize(3)
+        tu.shape("turtle")
+
+        tu.color("#ffffff")
+        for rectangle in list_rectangles:
+            tu.showturtle()
+            tu.up()
+            tu.goto(rectangle.x, rectangle.y)
+            tu.down()
+            for j in range(2):
+                tu.forward(rectangle.width)
+                tu.left(90)
+                tu.forward(rectangle.height)
+                tu.left(90)
+            tu.hideturtle()
+
+        tu.color("#FF7F7F")
+        for square in list_squares:
+            tu.showturtle()
+            tu.up()
+            tu.goto(square.x, square.y)
+            tu.down()
+            for j in range(2):
+                tu.forward(square.width)
+                tu.left(90)
+                tu.forward(square.height)
+                tu.left(90)
+            tu.hideturtle()
+
+        turtle.exitonclick()
+
     from_json_string = staticmethod(from_json_string)
     to_json_string = staticmethod(to_json_string)
     save_to_file = classmethod(save_to_file)
     create = classmethod(create)
+    save_to_file_csv = classmethod(save_to_file_csv)
+    load_from_file_csv = classmethod(load_from_file_csv)
+    draw = staticmethod(draw)
