@@ -1,21 +1,13 @@
 #!/usr/bin/node
 
-const Reactangle = require('./4-rectangle.js');
+const SquareBase = require('./5-square.js');
 
-class Square extends Reactangle {
-  constructor (size) {
-    super(size, size);
-  }
-
+class Square extends SquareBase {
   charPrint (c) {
-    if (c === undefined) {
-      c = 'X';
-    }
-
     for (let y = 0; y < this.height; y++) {
       let line = '';
       for (let x = 0; x < this.width; x++) {
-        line += c;
+        (c !== undefined) ? line += c : line += 'X';
       }
       console.log(line);
     }
