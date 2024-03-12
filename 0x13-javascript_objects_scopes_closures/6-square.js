@@ -11,7 +11,11 @@ class Square extends Reactangle {
     for (let y = 0; y < this.height; y++) {
       let line = '';
       for (let x = 0; x < this.width; x++) {
-        (c !== undefined) ? line += c : line += 'X';
+        if (c != undefined) {
+          line += c;
+	} else {
+         line += 'X';
+	}
       }
       console.log(line);
     }
