@@ -8,14 +8,14 @@ class Square extends Reactangle {
   }
 
   charPrint (c) {
+    if (c === undefined) {
+      c = 'X';
+    }
+
     for (let y = 0; y < this.height; y++) {
       let line = '';
       for (let x = 0; x < this.width; x++) {
-        if (c != undefined) {
-          line += c;
-	} else {
-         line += 'X';
-	}
+        line += c;
       }
       console.log(line);
     }
