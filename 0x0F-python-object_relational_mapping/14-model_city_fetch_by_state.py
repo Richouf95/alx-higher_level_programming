@@ -26,4 +26,4 @@ if __name__ == "__main__":
             ).filter(State.id == City.state_id)
 
     for city in cities:
-        print("{}: ({}) {}".formate(city[0], city[1], city[2]))
+        print("{}: ({}) {}".format(city[0], city[1], city[2]))
