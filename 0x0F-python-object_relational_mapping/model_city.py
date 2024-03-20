@@ -5,8 +5,9 @@ class definition of a City
 
 
 from model_state import Base
-from sqlalchemy import (create_engine, Column, Integer,
-        String, MetaData, ForeignKey)
+from sqlalchemy import (
+        create_engine, Column, Integer, String, MetaData, ForeignKey
+        )
 
 
 class City(Base):
