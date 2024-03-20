@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-a script that lists all states with a name match with
-user input from the database hbtn_0e_0_usa
+script that lists all cities from the database hbtn_0e_4_usa
 """
 import MySQLdb
 import sys
@@ -16,8 +15,11 @@ if __name__ == "__main__":
             port=3306
             )
     cursor = dataBase.cursor()
-    cursor.execute("""SELECT * FROM states WHERE name
-                LIKE BINARY '{}' ORDER BY states.id""".format(sys.argv[4]))
+    cursor.execute("""
+            SELECT cities.id, cities.name, states.name
+            FROM cities
+            INNER JOIN states ON states.id=cities.state_id
+            """)
     rows = cursor.fetchall()
 
     for r in rows:
