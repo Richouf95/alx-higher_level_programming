@@ -13,5 +13,5 @@ if __name__ == '__main__':
         res = req.read()
         print("Body response:")
         print("    - type: {}".format(type(res)))
-        print("    - utf8 content: {}".format(res))
+        print("    - content: {}".format(res))
         print("    - utf8 content: {}".format(res.decode('UTF-8')))
