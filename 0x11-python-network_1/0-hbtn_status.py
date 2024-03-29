@@ -11,10 +11,7 @@ if __name__ == '__main__':
     url = 'https://alx-intranet.hbtn.io/status'
     with urllib.request.urlopen(url) as req:
         res = req.read()
-        print("Body response:\
-                \n\t- type: {}\n\t- content: {}\
-                \n\t- utf8 content: {}".format(
-                    type(res),
-                    res,
-                    res.decode('UTF-8')
-                    ))
+        print("Body response:")
+        print("    - type: {}".format(type(res)))
+        print("    - utf8 content: {}".format(res))
+        print("    - utf8 content: {}".format(res.decode('UTF-8')))
