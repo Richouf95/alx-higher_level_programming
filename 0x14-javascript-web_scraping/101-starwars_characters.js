@@ -4,17 +4,29 @@ const request = require('request');
 
 const url = 'https://swapi-api.alx-tools.com/api/films/' + process.argv[2];
 
-request.get(url, (err, res, body) => {
-  if (!err && res.statusCode === 200) {
+request(url, (error, response, body) => {
+  if (!error && response.statusCode === 200) {
     const characters = JSON.parse(body).characters;
-    characters.map(item => {
+    const fetchAll = characters.map(item => {
       return new Promise((resolve, reject) => {
-        request.get(item, (error, response, characterbody) => {
+        request(item, function (err, res, bod) {
           if (!err && res.statusCode === 200) {
-            resolve(JSON.parse(characterbody).name);
-          } else reject(new Error(error));
+            resolve(JSON.parse(bod).name);
+          } else {
+            reject(new Error(err));
+          }
         });
-      }).then(c => console.log(c));
+      });
     });
-  } else console.error(err);
+
+    Promise.all(fetchAll)
+      .then(i => {
+        console.log(i.join('\n'));
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  } else {
+    console.error(error);
+  }
 });
