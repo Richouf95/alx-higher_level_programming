@@ -1,6 +1,6 @@
 # 0x15. JavaScript - Web jQuery
 
-[! alt jquery](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/305/4724718.jpg)
+![alt jquery](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/305/4724718.jpg)
 
 In this project we will work on some JQuery scripts
 
